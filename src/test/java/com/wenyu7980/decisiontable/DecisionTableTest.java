@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static com.wenyu7980.decisiontable.DecisionCompare.*;
+import static com.wenyu7980.decisiontable.DecisionMatches.*;
 
 public class DecisionTableTest {
     @Test
@@ -37,5 +37,10 @@ public class DecisionTableTest {
         table.add(2, NOT_IN(1, 2, 3));
         Assert.assertEquals(Integer.valueOf(1), table.get(1).get());
         Assert.assertEquals(Integer.valueOf(2), table.get(4).get());
+    }
+
+    @Test
+    public void testGE() {
+        Assert.assertTrue(GE(5).match(5));
     }
 }
